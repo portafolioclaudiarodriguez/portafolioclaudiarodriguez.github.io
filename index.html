@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Digital Claudia Rodríguez</title>
+    <!-- Favicon -->
+    <link rel="icon" href="imagenes/Letras.jpg" type="image/x-icon">
+    <!-- Enlace a Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary-color: #4c83af; /* Verde vibrante */
+            --secondary-color: #9c95d3; /* Azul verdoso */
+            --accent-color: #0745ff; /* Amarillo */
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --dark-bg: #e0e4e3;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px var(--shadow-medium);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 5px var(--shadow-light);
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: transform 0.3s ease-in-out;
+            opacity: 0; /* Hidden by default */
+            transform: translateY(20px); /* Slightly below */
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+            animation-delay: var(--delay); /* Custom delay */
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-of-type(1) { --delay: 0s; }
+        section:nth-of-type(2) { --delay: 0.2s; }
+        section:nth-of-type(3) { --delay: 0.4s; }
+        section:nth-of-type(4) { --delay: 0.6s; }
+        section:nth-of-type(5) { --delay: 0.8s; }
+        section:nth-of-type(6) { --delay: 1.0s; }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-details .info-block {
+            padding: 15px 20px;
+            background-color: var(--dark-bg);
+            border-radius: 10px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .project-details .info-block strong {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .project-details .project-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .project-details .project-link a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .visuals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .visuals-grid img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures images cover the area without distortion */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .visuals-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px var(--shadow-medium);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .technology-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px var(--shadow-light);
+        }
+
+        .badge i {
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px var(--shadow-medium);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                padding: 10px;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .project-details {
+                flex-direction: column;
+            }
+
+            .visuals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Claudia Susana Rodríguez Clavijo</h1>
+        <p>Portafolio</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#presentacion">Presentación</a></li>
+            <li><a href="#gocar">GOCAR</a></li>
+            <li><a href="#videoarte">Video Arte Blog</a></li>
+            <li><a href="#creatividad">Creatividad y Lenguaje Blog</a></li>
+            <li><a href="#portafolio-personal">Mi Portafolio Digital</a></li>
+            <li><a href="#gcdus">GCDUS Imágenes</a></li>
+			<li><a href="#amigos-de-los-andes">Amigos de los Andes</a></li>
+			<li><a href="#pagina-armonia-latina">Página: Armonía Latina</a></li>
+			<li><a href="#pagina-Bambu">Página: Bambú</a></li>
+		</ul>
+    </nav>
+
+    <div class="container">
+        <!-- 1. Sección: Presentación mía -->
+        <section id="presentacion">
+            <h2>Presentación</h2>
+            <p>
+                Soy Claudia Susana Rodríguez Clavijo, <b>Maestra en Arte con Concentración en Medios Electrónicos y Artes del Tiempo, Especialista y Magíster en Docencia Mediada por TIC.</b>
+            </p>
+            <p>
+                Cuento con más de seis años de experiencia en docencia universitaria, diseño gráfico y desarrollo web, así como en la creación de contenidos digitales y proyectos educativos innovadores.
+            </p>
+			<p>
+				En este portafolio se podrá encontrar una selección de mis trabajos <b>—blogs, páginas web y recursos multimedia—</b> desarrollados para diversos públicos y objetivos. Cada proyecto refleja mi compromiso con la creatividad, la funcionalidad y la calidad estética, siempre orientada a generar experiencias significativas para el usuario.
+			</p>
+			<p>
+				Mi propósito es integrar <b>diseño, tecnología y pedagogía</b> para ofrecer soluciones digitales que comuniquen, inspiren y aporten valor.</p>
+			
+            <div class="technology-badges">
+                <span class="badge"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="badge"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="badge"><i class="fab fa-wordpress"></i> WordPress</span>
+                <span class="badge"><i class="fas fa-palette"></i> Diseño UI/UX</span>
+                <span class="badge"><i class="fas fa-paint-brush"></i> Adobe Photoshop</span>
+                <span class="badge"><i class="fas fa-file-invoice"></i> Gestión de Contenido</span>
+                <!-- Puedes añadir más badges si consideras relevante mostrar aquí otras habilidades como analítica web o Git/GitHub -->
+            </div>
+        </section>
+
+        <!-- 2. Sección: GOCAR -->
+        <section id="gocar">
+            <h2>Proyecto Destacado: Sitio Web GOCAR</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Sitio Web Oficiales Carabineros GOCAR
+                </div>
+                <div class="info-block project-link">
+					<strong>Estado/Creación/Última actualización/Enlace</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Activo<p><i class="fas fa-calendar-plus"></i>  <b>Creación:</b> 2011</p><p><i class="fas fa-sync-alt"></i>  <b>Última actualización: </b>2025</p><p><i class="fas fa-link"></i>  <b>Enlace:</b> <a href="https://oficialescarabinerosgocar.com/" target="_blank">https://oficialescarabinerosgocar.com/ <i class="fas fa-external-link-alt"></i></a></p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Elaboración, Diseño y Administración de la Página Web.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> Plataforma digital para la comunidad de Oficiales Carabineros GOCAR, enfocada en la comunicación interna, acceso a información relevante y fomento de la conexión entre sus miembros.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> HTML5, CSS3, JavaScript, WordPress (para gestión de contenido y funcionalidad de backend), Herramientas de Diseño Gráfico.
+                </div>
+            </div>
+            <h3>Visuales del Proyecto GOCAR</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for GOCAR - Replace with actual screenshots if available -->
+                <img src="imagenes/GOCAR INICIO.jpg" alt="inicio de la página del grupo">
+                <img src="imagenes/contactenos.jpg" alt="foto que evidencia la sección de contactos del GOCAR">
+          </div>
+        </section>
+
+        <!-- 3. Sección: Blog Video Arte y Estilos de Aprendizaje -->
+        <section id="videoarte">
+            <h2>Blog: Video Arte y Estilos de Aprendizaje</h2>
+            <div class="project-details">
+				<div class="info-block">
+                    <strong>Título del Proyecto:</strong> Blog Didáctico: Video Arte y Estilos de Aprendizaje
+                </div>
+                <div class="info-block project-link">
+                    <strong>Estado/Creación/Última actualización/Enlace</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Activo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2021 <i class="fas fa-external-link-alt"></i>
+					</p><p><i class="fas fa-sync-alt"></i>  <b>Última actualización: </b>Sin actualizaciones posteriores</p><p><i class="fas fa-link"></i>  <b>Enlace:</b> <a href="https://trabajodegradoeyc.wordpress.com" target="_blank">https://trabajodegradoeyc.wordpress.com <i class="fas fa-external-link-alt"></i></a></p>
+                </div>
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Blog Didáctico: Video Arte y Estilos de Aprendizaje
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Desarrollo del blog, Creación y Gestión de Contenido, Diseño de la Experiencia Didáctica.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> Blog creado como herramienta de apoyo para una investigación de maestría, explorando la aplicación del videoarte para la didáctica y su relación con diferentes estilos de aprendizaje.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> WordPress (Backend basado en PHP), HTML, CSS, JavaScript (para personalizaciones).
+                </div>
+            </div>
+            <h3>Visuales del Blog Video Arte y Estilos de Aprendizaje</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for Video Arte Blog - Replace with actual screenshots -->
+                <img src="imagenes/video_arte.jpg" alt="inicio del blog">
+                <img src="imagenes/Videos.jpg" alt="pagina donde se encuentran los videos">
+            </div>
+        </section>
+
+        <!-- 4. Sección: Blog Creatividad y Lenguaje -->
+        <section id="creatividad">
+            <h2>Blog: Creatividad y Lenguaje</h2>
+            <div class="project-details">
+                    <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Blog de Exposición: Creatividad y Lenguaje
+                	</div>            
+					<div class="info-block project-link">
+                    <strong>Estado/Creación/Última actualización/Enlace</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Activo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2023
+					</p><p><i class="fas fa-sync-alt"></i>  <b>Última actualización: </b>Sin actualizaciones posteriores</p><p><i class="fas fa-link"></i>  <b>Enlace:</b> <a href="https://universitariadecolombiacomunicacionsocial.wordpress.com/?_gl=1*ehe6ib*_gcl_au*MTM1NzcxMTkyMy4xNzUwNjg3NjYy" target="_blank">https://universitariadecolombiacomunicacionsocial.wordpress.com <i class="fas fa-external-link-alt"></i></a></p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Creación y Administración del Blog, Curación y Presentación de Trabajos Estudiantiles.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> Plataforma digital para la exposición de trabajos realizados por estudiantes de Creatividad y Lenguaje de Comunicación Social.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> WordPress (Backend basado en PHP), HTML, CSS, JavaScript (para personalizaciones).
+                </div>
+            	<h3>Visuales del Blog Creatividad y Lenguaje</h3>
+           		<div class="visuals-grid">
+                <!-- Placeholder images for Creatividad y Lenguaje Blog - Replace with actual screenshots -->
+                <img src="imagenes/Inicio.jpg" alt="inicio del blog">
+                <img src="imagenes/menu.jpg" alt="menu del blog">
+           		</div>
+			</div>
+        </section>
+
+        <!-- 5. Sección: Mi Portafolio Digital Personal -->
+        <section id="portafolio-personal">
+            <h2>Mi Portafolio Digital Personal</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Portafolio Digital Claudia Rodríguez
+                </div>
+                <div class="info-block project-link">
+					<strong>Estado/Creación/Última actualización/Enlace</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Activo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2021
+					</p><p><i class="fas fa-sync-alt"></i>  <b>Última actualización: </b>Sin actualizaciones posteriores</p><p><i class="fas fa-link"></i>  <b>Enlace:</b> <a href="https://portafoliodigitalclaudiar.wordpress.com/?_gl=1*ehe6ib*_gcl_au*MTM1NzcxMTkyMy4xNzUwNjg3NjYy" target="_blank">https://portafoliodigitalclaudiar.wordpress.com<i class="fas fa-external-link-alt"></i></a></p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Diseño, Desarrollo y Administración de Sitio Web Profesional Personal.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> Mi propio espacio digital para exhibir mi trayectoria profesional, proyectos realizados y habilidades en desarrollo web y diseño de experiencias.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> WordPress (Backend basado en PHP), HTML, CSS, JavaScript (para personalizaciones).
+                </div>
+            </div>
+            <h3>Visuales de Mi Portafolio Digital</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for Personal Portfolio - Replace with actual screenshots -->
+                <img src="imagenes/inicio_portafolio.jpg" alt="introduccion al blog">
+                <img src="imagenes/retroalimentacion.jpg" alt="retroalimentacion al blog">
+            </div>
+        </section>
+
+        <!-- 6. Sección: GCDUS Imágenes -->
+        <section id="gcdus">
+            <h2>Trabajo de Diseño: General Computer Development US – GCDUS</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Diseño Gráfico Web y Elementos UI para GCDUS
+                </div>
+                <div class="info-block">
+				<strong>Estado/Creación</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Inactivo<p></p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2012              
+				</div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Diseñadora Gráfica Web.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> Creación de imágenes y elementos gráficos para la página web de General Computer Development US, un servicio de mantenimiento de computadoras e información.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> Adobe Photoshop.
+                </div>
+            </div>
+            <h3>Imágenes de Diseño para GCDUS</h3>
+            <div class="visuals-grid">
+                <!-- Las imágenes que me proporcionaste -->
+                <img src="imagenes/Computadores.jpg" alt="Imagen de diseño para GCDUS">
+                <img src="imagenes/Computadores 2.jpg" alt="Imagen de diseño para GCDUS: Computadores 2">
+                <img src="imagenes/Mirando.jpg" alt="Imagen de diseño para GCDUS: Mirando">
+                <img src="imagenes/Mundo digital.jpg" alt="Imagen de diseño para GCDUS: Mundo Digital">
+            </div>
+        </section>
+        <section id="amigos-de-los-andes">
+            <h2>Amigos de los Andes</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Amigos de los Andes
+                </div>
+                <div class="info-block project-link">
+					<strong>Estado/Creación</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Inactivo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2001
+					</p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Diseño y desarrollo del proyecto, responsable de la creación y maquetación de una página interactiva que integró el material visual y textual de las entrevistas realizadas.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> En 2001, como parte de un proyecto social en colaboración con otro artista, se llevó a cabo un trabajo de campo con entrevistas a vendedores ambulantes autorizados que trabajaban en los alrededores de la Universidad de los Andes. El objetivo fue documentar y difundir sus experiencias y realidades cotidianas, presentando el contenido de forma accesible y visualmente atractiva a través de una página web interactiva.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> Adobe Flash para el desarrollo de la interfaz interactiva y animaciones, y HTML para la estructuración y publicación de las entrevistas.
+                </div>
+            </div>
+            <h3>Visuales de Amigos de los Andes</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for Personal Portfolio - Replace with actual screenshots -->
+                <img src="imagenes/amigos-de-los-andes.png" alt="animacion con mapa de la universidad">
+                <img src="imagenes/amigos-de-los-andes-2.png" alt="una de las personas entrevistadas">
+            </div>
+        </section>
+        <section id="pagina-armonia-latina">
+            <h2>Página: Armonía Latina</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Página: Armonía Latina
+                </div>
+                <div class="info-block project-link">
+					<strong>Estado/Creación</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Inactivo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2005
+					</p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Diseño y creacón de experiencia digital, responsable de convertir la esencia musical de un grupo en una presencia interactiva en línea.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> En 2005, desarrollé la página web oficial de Armonía Latina, un grupo de músicos peruanos cuya propuesta fusionaba tradición y modernidad. El reto fue trasladar la calidez y ritmo de su música a un formato visual y dinámico. La interfaz, creada en Adobe Flash, combinaba animaciones fluidas con elementos visuales.
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> Adobe Flash para el desarrollo de la experiencia interactiva y animaciones.
+                </div>
+            </div>
+            <h3>Visuales de la página: Armonía Latina</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for Personal Portfolio - Replace with actual screenshots -->
+                <img src="imagenes/AL.gif" alt="presentacion menu pagina">
+                <img src="imagenes/AL2.gif" alt="presentacion pagina">
+            </div>
+        </section>
+        <section id="pagina-Bambu">
+            <h2>Página: Bambú</h2>
+            <div class="project-details">
+                <div class="info-block">
+                    <strong>Título del Proyecto:</strong> Página: Bambú
+                </div>
+                <div class="info-block project-link">
+					<strong>Estado/Creación</strong><i class="fas fa-check-circle"></i>  <b>Estado:</b> Inactivo<p><i class="fas fa-calendar-plus"></i>  <b>Creación: </b>2009
+					</p>
+                </div>
+                <div class="info-block">
+                    <strong>Rol:</strong> Diseño y desarrollo web, encargada de crear una experiencia digital inmersiva que reflejara la identidad y estilo del restaurante.
+                </div>
+                <div class="info-block">
+                    <strong>Contexto/Descripción Breve:</strong> En 2009, diseñé y desarrollé la página web del restaurante Bambú, un restaurante de comida china que buscaba trasladar su atmósfera y tradición culinaria al entorno digital. La propuesta combinó una navegación fluida y elementos interactivos, transmitiendo la elegancia y calidez del lugar. Creada íntegramente en Adobe Flash, la web ofrecía animaciones sutiles, colores inspirados en el restaurante y una presentación visual que invitaba a explorar tanto el menú como la esencia del restaurante..
+                </div>
+                <div class="info-block">
+                    <strong>Tecnologías Utilizadas:</strong> Adobe Flash para el desarrollo de la experiencia interactiva, diseño de interfaz y animaciones.
+                </div>
+            </div>
+            <h3>Visuales de la página: Bambú</h3>
+            <div class="visuals-grid">
+                <!-- Placeholder images for Personal Portfolio - Replace with actual screenshots -->
+                <img src="imagenes/Bambu.jpg" alt="presentacion menu pagina">
+                <img src="imagenes/BAMBU 2.jpg" alt="presentacion pagina">
+            </div>
+        </section>
+		
+    </div>
+
+    <!-- Modal para visualización de imágenes -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
+        <p>Conéctate conmigo:</p>
+        <div class="contact-info">
+            <a href="mailto:susanaclavijo@gmail.com"><i class="fas fa-envelope"></i> susanaclavijo@gmail.com</a>
+            <a href="https://www.linkedin.com/in/claudia-susana-rodríguez-clavijo-ba325843" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Claudia Susana Rodríguez Clavijo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // JavaScript para el modal de imágenes
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+        const closeButton = document.getElementsByClassName("close-button")[0];
+        const images = document.querySelectorAll(".visuals-grid img");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImage.src = this.src;
+                modalImage.alt = this.alt;
+            }
+        });
+
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

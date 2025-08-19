@@ -346,15 +346,16 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
             .presentation-content {
                 flex-direction: column;
             }
-            .visuals-gallery {
-				width: 100%;
-		        height: auto;
-                justify-content: center;
-            }
-            .visuals-gallery img {
-                width: 100%;
-                height: 200px;
-            }
+  			.visuals-gallery {
+    			flex-direction: column; /* obligo a que las imágenes se apilen en columna */
+    			align-items: center;    /* centro cada imagen */
+  			}
+
+  			.visuals-gallery img {
+    			flex: 0 0 100%;   /* cada imagen ocupa una fila completa */
+    			max-width: 100%;  /* no se pasa del ancho */
+    			height: 200px;
+  			}
             nav ul li {
                 display: block;
                 margin: 5px 0;

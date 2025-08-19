@@ -46,13 +46,11 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
             background-color: #eef2f5; /* Color de fondo general */
             color: #333;
         }
-
         .container {
             max-width: 960px;
             margin: 0 auto;
             padding: 20px;
         }
-
         /* Encabezado */
         .header {
             background-color: #4c83af;
@@ -64,7 +62,6 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
             top: 0;
             z-index: 1000;
         }
-
         .header h1 {
             margin: 0;
             font-size: 2.5em;
@@ -250,10 +247,13 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
+			justify-content: center;
         }
         
         .visuals-gallery img {
             width: 280px; /* Ancho ajustado */
+			flex: 0 0 calc(50% - 20px); /* 2 imágenes por fila */
+			max-width: calc(50% - 20px);
             height: 150px;
             object-fit: cover;
             border: 3px solid #ddd;
@@ -378,22 +378,22 @@ function MM_preloadImages() { //v3.0
     <header class="header">
         <h1>CLAUDIA SUSANA</h1>
         <h1>RODRÍGUEZ CLAVIJO</h1>
-        <p>Maestra en Arte con Concentración en MEAT <br>y<br> Docente</p>
+        <p>Maestra en Arte M.E.A.T y Docente</p>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#presentacion">Presentación</a></li>
-            <li><a href="#gocar">GOCAR</a></li>
-            <li><a href="#videoarte">Blog de videoarte</a></li>
-            <li><a href="#creatividad">Blog de Creatividad y Lenguaje</a></li>
+            <li><a href="#presentacion">Sobre mí</a></li>
+            <li><a href="#gocar">Página de GOCAR</a></li>
+            <li><a href="#videoarte">Videoarte</a></li>
+            <li><a href="#creatividad">Creatividad y Lenguaje</a></li>
             <li><a href="#portafolio-personal">Mi Portafolio Digital</a></li>
-            <li><a href="#gcdus">Imágenes de OCDUS</a></li>
+            <li><a href="#gcdus">Imagenes para GCDUS</a></li>
             <li><a href="#amigos-de-los-andes">Amigos de los Andes</a></li>
-			<li><a href="#pagina-armonia-latina">Página: Armonía Latina</a></li>
-			<li><a href="#especialistas-del-cafe">Página: Especialistas del café</a></li>
+			<li><a href="#pagina-armonia-latina">Armonía Latina</a></li>
+			<li><a href="#especialistas-del-cafe">Especialistas del café</a></li>
 			<li><a href="#cofipor">Página de COFIPOR</a></li>
-        	<li><a href="#pagina-Bambu">Página: Bambú</a></li>
+        	<li><a href="#pagina-Bambu">Bambú</a></li>
         </ul>
     </nav>
     
@@ -401,10 +401,10 @@ function MM_preloadImages() { //v3.0
     <div class="container">
         <!-- Sección de Presentación -->
         <section id="presentacion" class="section fade-in">
-          <h2 class="section-title">Presentación</h2>
+          <h2 class="section-title">Sobre mí</h2>
             <div class="presentation-content">
                 <div class="presentation-text">
-                    <p>Soy Claudia Susana Rodríguez Clavijo, <strong>Maestra en Arte con Concentración en Medios Electrónicos y Artes del Tiempo</strong>, <strong>Especialista y Magíster en Docencia</strong> Mediada por TIC.</p>
+                    <p>Soy Claudia Susana Rodríguez Clavijo, <strong>Maestra en Arte con Concentración en Medios Electrónicos y Artes del Tiempo (M.E.A.T)</strong>, <strong>Especialista y Magíster en Docencia</strong> Mediada por TIC.</p>
                     <p>Cuento con más de seis años de experiencia en docencia universitaria, diseño gráfico y desarrollo web, así como en la creación de contenidos digitales y proyectos educativos innovadores.</p>
                     <p>En este portafolio se destaca mi experiencia específica en la creación de <strong>sitios y páginas web y recursos multimedia</strong>, desarrollados para diversos públicos y objetivos. Cada proyecto refleja mi compromiso con la creatividad, la funcionalidad y la calidad estética, siempre orientada a generar experiencias significativas para el usuario.</p>
                     <p>Mi propósito es integrar <strong>diseño, tecnología y pedagogía</strong> para ofrecer soluciones digitales que comuniquen, inspiren y aporten valor.</p>
@@ -425,7 +425,7 @@ function MM_preloadImages() { //v3.0
 
         <!-- Sección Proyecto Destacado -->
         <section id="gocar" class="section">
-          <h2 class="section-title">Proyecto Destacado: Sitio Web GOCAR</h2>
+          <h2 class="section-title">Sitio Web GOCAR</h2>
             <div class="project-details">
                 <ul>
                     <li><i class="fas fa-check-circle"></i> <span style="color: #4b81ae"><em>Estado:</em></span> Activo</li>
@@ -544,7 +544,7 @@ function MM_preloadImages() { //v3.0
         </section>
 		<!-- Sección: amigos-de-los-andes -->
         <section id="amigos-de-los-andes" class="section">
-          <h2 class="section-title">Amigos de los Andes</h2>
+          <h2 class="section-title">Pagina: Amigos de los Andes</h2>
             <div class="project-details">
                 <ul>
                     <li><i class="fas fa-check-circle"></i> <span style="color: #4b81ae"><em>Estado:</em></span> Inactivo</li>

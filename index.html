@@ -252,15 +252,17 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
         
         .visuals-gallery img {
             width: 280px; /* Ancho ajustado */
+			height: 200px;
 			flex: 0 0 calc(50% - 20px); /* 2 imágenes por fila */
 			max-width: calc(50% - 20px);
-            height: 150px;
             object-fit: cover;
             border: 3px solid #ddd;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 			box-shadow: 0 4px 10px var(--shadow-light)
+
+
         }
         
         .visuals-gallery img:hover {
@@ -358,6 +360,7 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
     			height: 200px;
 				object-fit: cover;      /* recorta proporcionalmente sin deformar */
    				border-radius: 10px;    /* opcional: esquinas redondeadas */
+
   			}
             nav ul li {
                 display: block;
@@ -736,3 +739,4 @@ function MM_preloadImages() { //v3.0
 </script>
 </body>
 </html>
+

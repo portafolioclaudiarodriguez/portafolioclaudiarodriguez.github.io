@@ -353,8 +353,11 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
 
   			.visuals-gallery img {
     			flex: 0 0 100%;   /* cada imagen ocupa una fila completa */
-    			max-width: 100%;  /* no se pasa del ancho */
+    			width: 100%;
+				max-width: 100%;  /* no se pasa del ancho */
     			height: 200px;
+				object-fit: cover;      /* recorta proporcionalmente sin deformar */
+   				border-radius: 10px;    /* opcional: esquinas redondeadas */
   			}
             nav ul li {
                 display: block;

@@ -352,13 +352,15 @@ function MM_changeProp(objId,x,theProp,theValue) { //v9.0
   			}
 
   			.visuals-gallery img {
-    			flex: 0 0 100%;   /* cada imagen ocupa una fila completa */
-    			width: 100%;
-				max-width: 100%;  /* no se pasa del ancho */
-    			height: 200px;
-				object-fit: cover;      /* recorta proporcionalmente sin deformar */
-   				border-radius: 10px;    /* opcional: esquinas redondeadas */
-  			}
+    			display: block;          /* elimina espacios raros de inline images */
+    			width: 100% !important;  /* ocupa toda la fila */
+    			max-width: 100%;
+    			aspect-ratio: 16 / 9;    /* TODAS con la misma proporción (mismo alto) */
+    			height: auto;            /* deja que aspect-ratio calcule la altura */
+    			object-fit: cover;       /* recorta sin deformar */
+    			border-radius: 10px;     			
+			}
+			
             nav ul li {
                 display: block;
                 margin: 5px 0;
